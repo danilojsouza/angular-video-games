@@ -1,7 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment as env} from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
+
+import { APIResponse, Game } from '../api.models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +15,11 @@ export class HttpService {
   findAll(ordenacao: string, pesquisa?: string): Observable<APIResponse<Game>> {
     let parametros;
 
-    if(pesquisa)
+    if (pesquisa)
       parametros = new HttpParams().set('ordenacao', ordenacao).set('pesquisa', pesquisa);
     else
       parametros = new HttpParams().set('ordenacao', ordenacao);
 
-    return this.http.get<APIResponse<Game>>(`${env.API_URL}/games`, {params: parametros});
+    return this.http.get<APIResponse<Game>>(`${env.API_URL}/games`, { params: parametros });
   }
 }
