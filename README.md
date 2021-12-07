@@ -1,5 +1,4 @@
-# Angular and Video Games API [(RAWG Video Games Database
-)](https://rapidapi.com/accujazz/api/rawg-video-games-database/)
+# Angular and Video Games API [(RAWG Video Games Database)](https://rapidapi.com/accujazz/api/rawg-video-games-database/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 
