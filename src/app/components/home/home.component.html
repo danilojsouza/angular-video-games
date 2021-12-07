@@ -1,7 +1,7 @@
 <div class="filters">
   <mat-form-field>
     <mat-label>Ordenar</mat-label>
-    <mat-select panelClass="sort-select" [(ngModel)]="sort">
+    <mat-select panelClass="sort-select" [(ngModel)]="ordem">
         <mat-option value="nome">Nome</mat-option>
         <mat-option value="lancamento">Lançamento</mat-option>
         <mat-option value="adicionado">Adicionado</mat-option>
@@ -14,15 +14,20 @@
 </div>
 
 <div class="games">
-  <div class="game">
-    <div class="game-thumb-container">
-      <img class="game-thumbnail" src="https://thispersondoesnotexist.com/image" alt="Thumbnail do Jogo"/>
-    </div>
-    <div class="game-description">
-      <p class="game-name">Nome</p>
-      <div class="game-platforms">
-        <img class="game-platform" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Xbox_one_logo.svg/2048px-Xbox_one_logo.svg.png" alt="XboxLogo">
+  <ng-container *ngFor="let jogo of jogos">
+    <div class="game">
+      <div class="game-thumb-container">
+        <img class="game-thumbnail" src="{{jogo.background_image}}" alt="Imagem do Jogo"
+          *ngIf="jogo.background_image"/>
+        <p *ngIf="!jogo.background_image">Sem imagem</p>
+      </div>
+      <div class="game-description">
+        <p class="game-name">{{jogo.name}}</p>
+        <div class="game-platforms">
+            <img class="game-platform" src="assets/imagens/plataformas/{{plataforma.platform.name.toLocaleLowerCase()}}.svg" alt="{{plataforma.platform.name}}"
+              *ngFor="let plataforma of jogo.parent_platforms"/>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>
