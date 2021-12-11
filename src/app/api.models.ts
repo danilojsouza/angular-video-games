@@ -1,6 +1,7 @@
 //DOC da API https://rapidapi.com/accujazz/api/rawg-video-games-database/
 
 export interface Game {
+  id: number;
   background_image: string;
   name: string;
   released: string;
