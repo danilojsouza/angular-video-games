@@ -1,6 +1,7 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { apiKey } from 'src/config'
 
 @Injectable()
 export class HttpHeadersInterceptor implements HttpInterceptor {
@@ -14,7 +15,7 @@ export class HttpHeadersInterceptor implements HttpInterceptor {
         'X-Rapidapi-Key': 'a3b3acdf99msh53775c22f176647p1f3ebdjsn555f1d5bae6a'
       },
       setParams: { //Key da API https://api.rawg.io/docs/
-        key: 'ab643989c4e84edb9e34f6e4a04a560a'
+        key: apiKey()
       }
     });
     return next.handle(req);

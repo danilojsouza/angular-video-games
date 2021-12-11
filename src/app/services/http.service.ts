@@ -16,9 +16,9 @@ export class HttpService {
     let parametros;
 
     if (pesquisa)
-      parametros = new HttpParams().set('ordenacao', ordenacao).set('pesquisa', pesquisa);
+      parametros = new HttpParams().set('ordering', ordenacao).set('search', pesquisa);
     else
-      parametros = new HttpParams().set('ordenacao', ordenacao);
+      parametros = new HttpParams().set('ordering', ordenacao);
 
     return this.http.get<APIResponse<Game>>(`${env.API_URL}/games`, { params: parametros });
   }

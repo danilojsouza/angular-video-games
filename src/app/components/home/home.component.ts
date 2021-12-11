@@ -23,10 +23,9 @@ export class HomeComponent implements OnInit {
         this.searchGames('metacrit');
     });
   }
-  searchGames(ordenacao: string, pesquisa?: any) {
-    this.httpService.findAll(ordenacao, pesquisa).subscribe((listaJogos: APIResponse<Game>) => {
+  searchGames(ordem: string, pesquisa?: any): void {
+    this.httpService.findAll(ordem, pesquisa).subscribe((listaJogos: APIResponse<Game>) => {
       this.jogos = listaJogos.results;
-      console.log(this.jogos);
     });
   }
 

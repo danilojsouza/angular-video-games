@@ -1,13 +1,13 @@
 <div class="filters">
   <mat-form-field>
     <mat-label>Ordenar</mat-label>
-    <mat-select panelClass="sort-select" [(ngModel)]="ordem">
-        <mat-option value="nome">Nome</mat-option>
-        <mat-option value="lancamento">Lançamento</mat-option>
-        <mat-option value="adicionado">Adicionado</mat-option>
-        <mat-option value="criado">Criado</mat-option>
-        <mat-option value="atualizado">Atualizado</mat-option>
-        <mat-option value="avaliacao">Avaliação</mat-option>
+    <mat-select panelClass="sort-select" [(ngModel)]="ordem" (selectionChange)="searchGames(ordem)">
+        <mat-option value="name">Nome</mat-option>
+        <mat-option value="-released">Lançamento</mat-option>
+        <mat-option value="-added">Adicionado</mat-option>
+        <mat-option value="-created">Criado</mat-option>
+        <mat-option value="-updated">Atualizado</mat-option>
+        <mat-option value="-rating">Avaliação</mat-option>
         <mat-option value="metacritic">Metacritc</mat-option>
     </mat-select>
   </mat-form-field>
@@ -24,7 +24,7 @@
       <div class="game-description">
         <p class="game-name">{{jogo.name}}</p>
         <div class="game-platforms">
-            <img class="game-platform" src="assets/imagens/plataformas/{{plataforma.platform.name.toLocaleLowerCase()}}.svg" alt="{{plataforma.platform.name}}"
+            <img class="game-platform" src="assets/imagens/plataformas/{{plataforma.platform.slug}}.svg" alt="{{plataforma.platform.slug}}"
               *ngFor="let plataforma of jogo.parent_platforms"/>
         </div>
       </div>
